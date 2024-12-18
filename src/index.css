@@ -4,6 +4,7 @@
 
 .background {
   background: url('background.jpg');
+  background-size: cover;
   display: grid;
   place-items: center;
 }
@@ -13,7 +14,7 @@
 
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  width: calc(100vw - 4rem);
+  width: min(calc(100vw - 4rem), 1440px);
   height: calc(100vh - 4rem);
   backdrop-filter: blur(20px) saturate(180%);
   border-radius: 12px;
