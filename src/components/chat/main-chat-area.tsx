@@ -1,11 +1,9 @@
-import Footer from './footer'
 import MessageSection from './message-section'
 
 const MainChatArea = () => {
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex flex-1 flex-col overflow-auto">
       <MessageSection />
-      <Footer />
     </main>
   )
 }

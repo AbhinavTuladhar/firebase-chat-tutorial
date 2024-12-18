@@ -7,7 +7,7 @@ const MessageSection = () => {
   const arrayIterator = Array.from({ length: 10 }).map((_, index) => index + 1)
 
   return (
-    <div className="flex max-h-[70vh] flex-1 flex-col gap-y-4 overflow-y-auto p-4">
+    <div className="flex flex-1 flex-col gap-y-4 overflow-y-auto p-4">
       {arrayIterator.map(index => (
         <Message key={index} isOwn={index % 2 === 0} text={placeholderText} />
       ))}
