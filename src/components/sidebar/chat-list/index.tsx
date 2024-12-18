@@ -13,24 +13,24 @@ const ChatList = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between p-4">
-        <div className="relative">
+      <div className="flex items-center justify-between gap-x-4 p-4">
+        <div className="relative flex-1">
           <IoSearch className="absolute left-2 top-1/2 -translate-y-1/2" />
           <input
-            className="inset-0 w-full rounded-lg bg-primary p-2 pl-8"
+            className="inset-0 w-full rounded-lg bg-primary/60 p-2 pl-8"
             type="text"
             value={name}
             onChange={e => setName(e.target.value)}
           />
         </div>
         <button
-          className="grid size-10 cursor-pointer place-items-center rounded-lg bg-primary text-xl duration-300 active:scale-90"
+          className="grid size-10 cursor-pointer place-items-center rounded-lg bg-primary/60 text-xl duration-300 active:scale-90"
           onClick={toggleModes}
         >
           {addMode ? <HiPlus /> : <HiMinus />}
         </button>
       </div>
-      <div className="flex flex-col divide-y divide-white divide-opacity-30 border-b border-white/30">
+      <div className="flex flex-col divide-y divide-white divide-opacity-15 border-b border-white/15">
         {Array(4)
           .fill(0)
           .map((_, index) => (

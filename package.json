@@ -13,6 +13,7 @@
     "lint-fix": "eslint --fix"
   },
   "dependencies": {
+    "emoji-picker-react": "^4.12.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "classnames": "^2.5.1",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
@@ -42,8 +44,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn run format",
-      "yarn run lint"
+      "yarn run lint",
+      "yarn run format"
     ]
   }
 }
