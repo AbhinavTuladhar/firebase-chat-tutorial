@@ -3,7 +3,7 @@ import MainChatArea from './main-chat-area'
 
 const Chat = () => {
   return (
-    <div>
+    <div className="flex flex-col">
       <Header />
       <MainChatArea />
     </div>
