@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+  background: url('background.jpg');
+  display: grid;
+  place-items: center;
+}
+
+.main-container {
+  width: calc(100vw - 4rem);
+  height: calc(100vh - 4rem);
+  background-color: hsla(219, 40%, 11%, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid hsla(0, 0%, 100%, 0.125);
+}
