@@ -18,8 +18,11 @@ const Detail = () => {
         ))}
       </div>
       <SharedPhotos />
-      <button className="mx-4 mt-4 rounded-lg bg-red-700 py-4 duration-300 hover:bg-red-600">
+      <button className="mx-4 mt-4 rounded-lg bg-red-700 py-2 duration-300 hover:bg-red-600">
         Block user
+      </button>
+      <button className="mx-4 mt-4 rounded-lg bg-blue-700 py-2 duration-300 hover:bg-blue-600">
+        Logout
       </button>
     </div>
   )
