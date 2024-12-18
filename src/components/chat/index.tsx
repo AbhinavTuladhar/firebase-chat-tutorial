@@ -1,11 +1,11 @@
-import React from 'react'
-
 import Header from './header'
+import MainChatArea from './main-chat-area'
 
 const Chat = () => {
   return (
     <div>
       <Header />
+      <MainChatArea />
     </div>
   )
 }
