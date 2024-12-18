@@ -1,4 +1,3 @@
-import React from 'react'
 import { AiFillInfoCircle } from 'react-icons/ai'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { IoMdVideocam } from 'react-icons/io'
