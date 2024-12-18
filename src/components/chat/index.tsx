@@ -1,7 +1,13 @@
 import React from 'react'
 
+import Header from './header'
+
 const Chat = () => {
-  return <div>Chat</div>
+  return (
+    <div>
+      <Header />
+    </div>
+  )
 }
 
 export default Chat

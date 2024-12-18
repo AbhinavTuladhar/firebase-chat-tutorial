@@ -30,7 +30,7 @@ const ChatList = () => {
           {addMode ? <HiPlus /> : <HiMinus />}
         </button>
       </div>
-      <div className="flex flex-col divide-y divide-white divide-opacity-30 border-b border-white/30">
+      <div className="flex flex-col divide-y divide-white divide-opacity-15 border-b border-white/15">
         {Array(4)
           .fill(0)
           .map((_, index) => (

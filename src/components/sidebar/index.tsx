@@ -3,7 +3,7 @@ import UserInfo from './user-info'
 
 const Sidebar = () => {
   return (
-    <aside className="w-96">
+    <aside>
       <UserInfo />
       <ChatList />
     </aside>
