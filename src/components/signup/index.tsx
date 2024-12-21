@@ -1,4 +1,8 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
+
+import { auth } from '@/firebase'
 
 interface Avatar {
   file: File
@@ -37,11 +41,28 @@ const Signup = () => {
     }
   }
 
+  const handleRegister = async (event: FormEvent) => {
+    event.preventDefault()
+    console.log(formData)
+
+    const { email, password } = formData
+
+    try {
+      const response = await createUserWithEmailAndPassword(auth, email, password)
+      console.log(response)
+    } catch (error) {
+      console.error(error)
+      if (error instanceof Error) {
+        toast.error(error.message)
+      }
+    }
+  }
+
   return (
     <div className="grid place-items-center">
       <div className="flex flex-col gap-y-4">
         <h2 className="text-xl font-bold">Create an Account</h2>
-        <form className="flex flex-col gap-y-4">
+        <form className="flex flex-col gap-y-4" onSubmit={handleRegister}>
           <>
             <label htmlFor="file-input" className="flex cursor-pointer items-center gap-x-4">
               <img src={avatar.url || '/avatar.png'} className="size-12" />
