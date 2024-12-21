@@ -1,8 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
 import { toast } from 'react-toastify'
 
-import { auth } from '@/firebase'
+import { auth, db } from '@/firebase'
 
 interface Avatar {
   file: File
@@ -45,11 +46,25 @@ const Signup = () => {
     event.preventDefault()
     console.log(formData)
 
-    const { email, password } = formData
+    const { email, password, userName } = formData
 
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password)
       console.log(response)
+
+      // Save to remote database
+      await setDoc(doc(db, 'users', response.user.uid), {
+        userName,
+        email,
+        id: response.user.uid,
+        blocked: [],
+      })
+
+      await setDoc(doc(db, 'userChats', response.user.uid), {
+        chats: [],
+      })
+
+      toast.success('Account created successfully!')
     } catch (error) {
       console.error(error)
       if (error instanceof Error) {
