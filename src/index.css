@@ -13,12 +13,19 @@
   @apply bg-primary/75;
 
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   width: min(calc(100vw - 4rem), 1440px);
   height: calc(100vh - 4rem);
   backdrop-filter: blur(20px) saturate(180%);
   border-radius: 12px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
+}
+
+.main-container.chat {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.main-container.login {
+  grid-template-columns: 1fr 1fr;
 }
 
 .main-container > * + * {
