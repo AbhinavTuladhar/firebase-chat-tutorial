@@ -1,6 +1,15 @@
-import React, { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
+
+interface Avatar {
+  file: File
+  url: string
+}
 
 const Signup = () => {
+  const [avatar, setAvatar] = useState<Avatar>({
+    file: new File([], ''),
+    url: '',
+  })
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
@@ -15,15 +24,31 @@ const Signup = () => {
     }))
   }
 
+  const handleUploadImage = (event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target
+
+    if (files && files.length > 0) {
+      const file = files[0]
+      const url = URL.createObjectURL(file)
+      setAvatar({
+        file,
+        url,
+      })
+    }
+  }
+
   return (
     <div className="grid place-items-center">
       <div className="flex flex-col gap-y-4">
         <h2 className="text-xl font-bold">Create an Account</h2>
         <form className="flex flex-col gap-y-4">
-          <div className="flex items-center gap-x-4">
-            <img src="/avatar.png" className="size-12" />
-            <span> Upload an image</span>
-          </div>
+          <>
+            <label htmlFor="file-input" className="flex cursor-pointer items-center gap-x-4">
+              <img src={avatar.url || '/avatar.png'} className="size-12" />
+              <span> Upload an image</span>
+            </label>
+            <input id="file-input" type="file" className="hidden" onChange={handleUploadImage} />
+          </>
           <input
             className="rounded-lg bg-primary/60 px-4 py-2"
             placeholder="Username"
