@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +12,16 @@ const Login = () => {
     setFormData(prevState => ({ ...prevState, [name]: value }))
   }
 
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
+    toast.success('Login successfully')
+  }
+
   return (
     <div className="grid place-items-center">
       <div className="flex flex-col gap-y-4">
         <h2 className="text-center text-xl font-bold"> Welcome back! </h2>
-        <form className="flex flex-col gap-y-4">
+        <form className="flex flex-col gap-y-4" onSubmit={handleSubmit}>
           <input
             className="rounded-lg bg-primary/60 px-4 py-2 placeholder:text-slate-600"
             placeholder="Email"
