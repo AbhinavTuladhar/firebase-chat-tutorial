@@ -1,5 +1,8 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from 'react-toastify'
+
+import { auth } from '@/firebase'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +15,20 @@ const Login = () => {
     setFormData(prevState => ({ ...prevState, [name]: value }))
   }
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    toast.success('Login successfully')
+
+    const { email, password } = formData
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      toast.success('Logged in successfully!')
+    } catch (error) {
+      console.error(error)
+      if (error instanceof Error) {
+        toast.error(error.message)
+      }
+    }
   }
 
   return (
